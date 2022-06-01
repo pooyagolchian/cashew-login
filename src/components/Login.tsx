@@ -6,10 +6,14 @@ import { UserSubmitForm } from './../interfaces/ILogin'
 import LoginService from '../services/LoginService'
 import { useNavigate } from 'react-router-dom'
 import { useToasts } from 'react-toast-notifications'
+import { useDispatch } from 'react-redux'
+import { userAction } from '../store/users'
+import { ENV_CONFIG } from '../EnvConfig'
 
 const Login = () => {
   const navigate = useNavigate()
   const { addToast } = useToasts()
+  const dispatch = useDispatch()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -35,9 +39,14 @@ const Login = () => {
       setDisabled(true)
       const response = (await LoginService.LoginRequest(data)).data
       const token = response.token
-      localStorage.setItem('token', token)
-      await navigate('/dashboard')
-      addToast('Login Successfully', { appearance: 'success' })
+      console.log(process.env)
+
+      if (token === ENV_CONFIG.TOKEN) {
+        localStorage.setItem('token', token)
+        await navigate('/dashboard')
+        addToast('Login Successfully', { appearance: 'success' })
+        await dispatch(userAction.setUser(data.email))
+      }
       setDisabled(false)
     } catch (error: any) {
       addToast(error?.response?.data?.error, { appearance: 'error' })
