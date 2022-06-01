@@ -33,11 +33,12 @@ const DashboardPage = () => {
       <div className="bg-white border-bottom border-1 p-2">
         <div className="container">
           <div className="row justify-content-between">
-            <div className="col col-auto">
+            <div data-testid="user-email" className="col col-auto">
               {userEmail ? userEmail : 'Dashboard'}
             </div>
             <div className="col col-auto">
               <button
+                data-testid="logout-btn"
                 onClick={handleLogOut}
                 className="btn btn-sm small btn-primary"
               >

@@ -38,10 +38,8 @@ const Login = () => {
     try {
       setDisabled(true)
       const response = (await LoginService.LoginRequest(data)).data
-      const token = response.token
-      console.log(process.env)
-
-      if (token === ENV_CONFIG.TOKEN) {
+      const token = response?.token
+      if (token && token === ENV_CONFIG.TOKEN) {
         localStorage.setItem('token', token)
         await navigate('/dashboard')
         addToast('Login Successfully', { appearance: 'success' })
@@ -69,6 +67,7 @@ const Login = () => {
           <div className="col col-12">
             <label className="form-label">Email</label>
             <input
+              data-testid="username"
               type="text"
               value={email}
               {...register('email')}
@@ -82,6 +81,7 @@ const Login = () => {
           <div className="col col-12 mt-3">
             <label className="form-label">Password</label>
             <input
+              data-testid="password"
               {...register('password')}
               onChange={handlePassword}
               type="password"
@@ -95,6 +95,7 @@ const Login = () => {
 
           <div className="col col-12 mt-3">
             <button
+              data-testid="login-btn"
               disabled={disabled}
               type="submit"
               className="btn btn-primary"

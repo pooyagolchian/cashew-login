@@ -17,7 +17,11 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <BrowserRouter>
     <Provider store={store}>
-      <ToastProvider autoDismiss={true} autoDismissTimeout={1000}>
+      <ToastProvider
+        placement={'bottom-right'}
+        autoDismiss={true}
+        autoDismissTimeout={1000}
+      >
         <PersistGate loading={null} persistor={persistor}>
           <App />
         </PersistGate>
