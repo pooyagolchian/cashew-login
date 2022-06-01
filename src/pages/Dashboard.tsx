@@ -1,12 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 
 const DashboardPage = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleLogOut = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
+    localStorage.removeItem('token')
+    navigate('/login')
+  }
 
   return (
     <div>
@@ -30,7 +30,7 @@ const DashboardPage = () => {
         <h3>Dashboard</h3>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DashboardPage;
+export default DashboardPage

@@ -1,0 +1,10 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "viewportHeight": 1000,
+  "viewportWidth": 1280,
+  "retries": {
+    "runMode": 2,
+    "openMode": 1
+  },
+  "experimentalStudio": true
+}

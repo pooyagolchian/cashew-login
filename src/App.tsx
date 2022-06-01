@@ -1,20 +1,20 @@
-import { useEffect } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
-import DashboardPage from "./pages/Dashboard";
-import LoginPage from "./pages/LoginPage";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react'
+import { Route, Routes, Navigate } from 'react-router-dom'
+import DashboardPage from './pages/Dashboard'
+import LoginPage from './pages/LoginPage'
+import { useNavigate } from 'react-router-dom'
 
 const App = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   useEffect(() => {
-    const token = localStorage ? localStorage.getItem("token") : "";
+    const token = localStorage ? localStorage.getItem('token') : ''
     if (token) {
-      navigate("/dashboard");
+      navigate('/dashboard')
     } else {
-      navigate("/login");
+      navigate('/login')
     }
-  }, [navigate]);
+  }, [navigate])
   return (
     <div className="App">
       <Routes>
@@ -23,7 +23,7 @@ const App = () => {
         <Route path="/" element={<Navigate replace to="/login" />} />
       </Routes>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

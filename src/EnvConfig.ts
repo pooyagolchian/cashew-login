@@ -1,3 +1,3 @@
 export const ENV_CONFIG = {
-    API_URL: 'https://reqres.in/api/',
-  }
+  API_URL: 'https://reqres.in/api/',
+}
