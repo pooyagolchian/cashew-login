@@ -51,13 +51,11 @@ This command has been used to run the E2E test with Cypress. I have used cypress
 
 - This command formats all files with Prettier.
 
-
 ### SOLID
 
 Regarding the `S` for `SOLID` I just tried to keep each function(component as a function as well)
 just be responsible for a single task. That's why I just created a separate component for every part
 and also keep it simple stupid.
-
 
 ### Prettier
 
