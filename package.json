@@ -33,11 +33,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom --watchAll",
     "eject": "react-scripts eject",
     "format": "prettier --write \"**/*.+(js|tsx|json|css|md|ts|scss)\"",
     "precypress": "yarn predev:cognito:ci",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
