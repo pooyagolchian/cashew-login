@@ -16,5 +16,5 @@ jobs:
         with:
           node-version: 17.x
       - run: npm install --force
-      - run: npm test
+      - run: npm run test -- --watchAll=false
       - run: npm run build
